@@ -1,27 +1,19 @@
 import typer
-from bruhh.cli.subcommands import Daemon
+from bruhh.cli.subcommands import system
+from rich.logging import RichHandler
+import logging
 
-app = typer.Typer(help="Bruhh CLI - a command line interface for background tasks.", no_args_is_help=True)
+logging.basicConfig(level="INFO", format="%(message)s", handlers=[RichHandler()])
 
-@app.command()
-def run():
-    """
-    Start the Bruhh background service (daemon) or perform actions directly.
-    """
-    typer.echo("Running Bruhh service... (placeholder for future logic)")
+_main_help = """Bruhh CLI - A command line interface for agent-based LLM things, do `bruhh system init`"""
 
-@app.command()
-def status():
-    """
-    Check the status of the background service.
-    """
-    # Placeholder logic: you'd probably check if the daemon is running, etc.
-    typer.echo("Bruhh status: (placeholder) Service is idle or running.")
+app = typer.Typer(
+    help=_main_help,
+    no_args_is_help=True,
+    epilog="Bruhh CLI is a command line interface for agent-based LLM things.",
+)
+app.add_typer(system, name="system", help="System commands, including daemon management.")
 
-
-def main():
-    """Entry point for CLI."""
-    app()
 
 if __name__ == "__main__":
-    main()
+    app()

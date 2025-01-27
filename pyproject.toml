@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bruhh"
-version = "0.1.0"
+version = "0.1.2"
 description = ""
 authors = ["abi_jey <abi-jey@users.noreply.github.com>"]
 readme = "README.md"
@@ -8,15 +8,29 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 pydantic = ">=2.10.0"
-typer = ">=0.4.0"
+typer = ">=0.14.0"
+rich = "*"
+fastapi = {version = ">=0.115.6", extras = ["all"]}
+uvicorn = {version = ">=0.34.0", extras = ["standard"]}
+pydantic-ai = {version = ">=0.0.19", extras = ["logfire"]}
+aiohttp = ">=3.8.1"
+
 
 [tool.poetry.group.daemon.dependencies]
-fastapi = {extras = ["all"], version = "^0.115.6"}
-uvicorn = {extras = ["all"], version = "^0.34.0"}
-pydantic-ai = {extras = ["logfire", "graph", "openai", "vertexai", "anthropic", "groq", "mistral"], version = "^0.0.19"}
+fastapi = {extras = ["all"], version = ">=0.115.6"}
+uvicorn = {extras = ["standard"], version = ">=0.34.0"}
+pydantic-ai = {extras = ["logfire"], version = ">=0.0.19"}
+pre-commit = {version = ">=4"}
+
+[tool.poetry.extras]
+daemon = ["fastapi", "uvicorn", "pydantic-ai"]
 
 [tool.poetry.scripts]
 bruhh = "bruhh.cli.main:app"
+
+[tool.ruff]
+
+line-length = 120
 
 [build-system]
 requires = ["poetry-core"]
