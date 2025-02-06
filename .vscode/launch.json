@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Python Debugger: Current File",
             "type": "debugpy",
@@ -18,9 +19,22 @@
             "program": "src/bruhh/cli/main.py",
             "args": [
                 "system",
-                "init"
+                "-h"
             ],
             "console": "integratedTerminal"
         },
+        {
+            "name": "cli: bruhh hello, how are you",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "src/bruhh/cli/main.py",
+            "args": [
+                "hello",
+                "how are you?"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        
     ]
 }

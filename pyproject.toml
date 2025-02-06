@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bruhh"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["abi_jey <abi-jey@users.noreply.github.com>"]
 readme = "README.md"
@@ -8,12 +8,12 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 pydantic = ">=2.10.0"
-typer = ">=0.14.0"
 rich = "*"
 fastapi = {version = ">=0.115.6", extras = ["all"]}
 uvicorn = {version = ">=0.34.0", extras = ["standard"]}
 pydantic-ai = {version = ">=0.0.19", extras = ["logfire"]}
 aiohttp = ">=3.8.1"
+textual = "^1.0.0"
 
 
 [tool.poetry.group.daemon.dependencies]
@@ -26,7 +26,7 @@ pre-commit = {version = ">=4"}
 daemon = ["fastapi", "uvicorn", "pydantic-ai"]
 
 [tool.poetry.scripts]
-bruhh = "bruhh.cli.main:app"
+bruhh = "bruhh.cli.main:main"
 
 [tool.ruff]
 
